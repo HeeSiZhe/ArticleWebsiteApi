@@ -55,3 +55,40 @@ exports.update_avatar_schema = {
     }
 }
 
+//增加文章分类规则
+// 定义 分类名称 和 分类别名 的校验规则
+const name = joi.string().required()
+const alias = joi.string().alphanum().required()
+exports.add_cate_schema = {
+  body: {
+    name,
+    alias,
+  },
+}
+
+//根据id删除文章分类规则
+exports.delete_cate_schema = {
+  params: {
+    //这里的id规则和用户注册时一样
+    id,
+  },
+}
+
+//根据id获取文章分类规则
+exports.get_cate_schema = {
+  params: {
+    //这里的id规则和用户注册时一样
+    id,
+  },
+}
+
+// 根据id更新文章分类数据规则
+exports.update_cate_schema = {
+  body: {
+    Id: id,
+    name,
+    alias,
+  },
+}
+
+

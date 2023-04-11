@@ -35,6 +35,9 @@ app.use('/api', userRouter)
 //用户信息路由
 const userinfoRouter = require('./router/userinfo')
 app.use('/my', userinfoRouter)
+//文章管理路由
+const artCateRouter = require('./router/artcate')
+app.use('/my/article', artCateRouter)
 
 //错误中间件
 const joi = require('joi')
