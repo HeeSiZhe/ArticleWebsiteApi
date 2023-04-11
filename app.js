@@ -8,6 +8,8 @@ app.use(cors())
 //解析表单数据
 app.use(express.urlencoded({ extended: false }))
 
+// 托管静态资源文件
+app.use('/uploads', express.static('./uploads'))
 
 //封装res.cc函数
 app.use((req, res, next) => {
@@ -35,9 +37,12 @@ app.use('/api', userRouter)
 //用户信息路由
 const userinfoRouter = require('./router/userinfo')
 app.use('/my', userinfoRouter)
-//文章管理路由
+//文章分类路由
 const artCateRouter = require('./router/artcate')
 app.use('/my/article', artCateRouter)
+//文章路由
+const articleRouter = require('./router/article')
+app.use('/my/article',articleRouter)
 
 //错误中间件
 const joi = require('joi')
