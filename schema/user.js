@@ -59,10 +59,18 @@ exports.update_avatar_schema = {
 // 定义 分类名称 和 分类别名 的校验规则
 const name = joi.string().required()
 const alias = joi.string().alphanum().required()
+
+const Bno = joi.string().required()
+const Bname = joi.string().required()
+const Bprice = joi.string().required()
+const Bnum = joi.string().required()
+
 exports.add_cate_schema = {
   body: {
-    name,
-    alias,
+    Bno,
+    Bname,
+    Bprice,
+    Bnum
   },
 }
 
@@ -70,7 +78,6 @@ exports.add_cate_schema = {
 exports.delete_cate_schema = {
   params: {
     //这里的id规则和用户注册时一样
-    id,
   },
 }
 
@@ -85,9 +92,10 @@ exports.get_cate_schema = {
 // 根据id更新文章分类数据规则
 exports.update_cate_schema = {
   body: {
-    Id: id,
-    name,
-    alias,
+    Bno,
+    Bname,
+    Bprice,
+    Bnum
   },
 }
 
