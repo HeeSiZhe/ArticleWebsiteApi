@@ -53,7 +53,6 @@ exports.login = (req, res) => {
         //判断密码是否与数据里的加密密码一致
         const compareResult = bcrypt.compareSync(userinfo.password, results[0].password)
         if (!compareResult) return res.cc('密码错误')
-
         //token
         const user = { ...results[0], password: '', user_pic: '' }
         // 生成 Token 字符串
@@ -65,6 +64,7 @@ exports.login = (req, res) => {
             message: '登录成功!',
             // 为了方便客户端使用 Token，在服务器端直接拼接上 Bearer 的前缀
             token: 'Bearer ' + tokenStr,
+            id:results[0].id
           })
     })
 }

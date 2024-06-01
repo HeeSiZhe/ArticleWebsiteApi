@@ -7,9 +7,9 @@ const expressJoi = require('@escook/express-joi')
 const { update_userinfo_schema,update_password_schema,update_avatar_schema } = require('../schema/user')
 
 //获取用户信息
-router.get('/userinfo',userinfo_handler.getUserinfo)
+router.post('/get/userinfo',userinfo_handler.getUserinfo)
 //更改用户信息
-router.post('/userinfo',expressJoi(update_userinfo_schema),userinfo_handler.updateUserinfo)
+router.post('/update/userinfo',expressJoi(update_userinfo_schema),userinfo_handler.updateUserinfo)
 //更改密码
 router.post('/updatepwd',expressJoi(update_password_schema),userinfo_handler.updatePwd)
 //更换头像
